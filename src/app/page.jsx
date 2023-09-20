@@ -23,21 +23,7 @@ function Homepage() {
     fetchData();
   }, []);
 
-  // Asegúrate de que las URLs de las imágenes utilicen HTTPS
-const usersWithSecureImageUrls = users.map((user) => {
-  if (user && user.imageUrl) {
-    const secureImageUrl = user.imageUrl.replace("http://", "https://");
-    return {
-      ...user,
-      imageUrl: secureImageUrl,
-    };
-  } else {
-    return user; // Devolver el usuario sin cambios si no tiene imageUrl
-  }
-});
-
-
-  return <UserCard users={usersWithSecureImageUrls} />;
+  return <UserCard users={users} />;
 }
 
 export default Homepage;

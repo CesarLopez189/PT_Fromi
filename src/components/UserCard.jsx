@@ -19,11 +19,13 @@ function UserCard({ users }) {
         {users.map((user, index) => (
           <motion.div
             key={index}
-            className="bg-gray-300 p-4 rounded-md px-16 shadow-2xl hover:shadow-lg hover:bg-gray-400 cursor-pointer"
+            className="bg-gray-300 p-4 rounded-md px-28 shadow-2xl cursor-pointer"
             onClick={() => handleCardClick(user)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, scale: 1 }} // Inicialmente, sin escala
+            animate={{ opacity: 1, scale: 1 }} // Animación al estado activo
+            exit={{ opacity: 0, scale: 1 }} // Animación al ocultar
+            whileHover={{ scale: 1.1 }} // Escala al hacer hover
+            transition={{ duration: 0.3 }} // Duración de la animación
           >
             <img
               src={user.Imagen}
